@@ -1,6 +1,11 @@
 package com.application.se2.model;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import com.application.se2.AppConfigurator.LoggerTopics;
 import com.application.se2.misc.IDGenerator;
+import com.application.se2.misc.LoggerImpl;
 
 
 /**
@@ -24,6 +29,8 @@ public class Article implements Entity {
 
 	private String price;
 
+	private Logger logger2 = null;
+	private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
 
 	/**
 	 * Public constructor.
@@ -32,6 +39,9 @@ public class Article implements Entity {
 	 */
 	public Article( final String name, final String price ) {
 		this( null, name, price );
+//		logger2.log(Level.INFO, "Article constructor is called");
+		logger.log(LoggerTopics.Info, "article created", null);
+
 	}
 
 	/**

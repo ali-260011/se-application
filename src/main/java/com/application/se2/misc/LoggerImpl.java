@@ -14,11 +14,11 @@ public class LoggerImpl implements Logger {
 
 	private LoggerImpl(final Class<?> clazz) {
 		realLogger = org.apache.log4j.Logger.getLogger(clazz);
-		SimpleLayout layout = new SimpleLayout();
-		ConsoleAppender consoleAppender = new ConsoleAppender(layout);
-		this.realLogger.addAppender(consoleAppender);
-		// ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF:
-		this.realLogger.setLevel(Level.ALL);
+//		SimpleLayout layout = new SimpleLayout();
+//		ConsoleAppender consoleAppender = new ConsoleAppender(layout);
+//		this.realLogger.addAppender(consoleAppender);
+//		// ALL | DEBUG | INFO | WARN | ERROR | FATAL | OFF:
+//		this.realLogger.setLevel(Level.ALL);
 	}
 
 	public static Logger getInstance(final Class<?> clazz) {

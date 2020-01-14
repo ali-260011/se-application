@@ -3,8 +3,17 @@ package com.application.se2.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+import com.application.se2.AppConfigurator.LoggerTopics;
+
+//import org.apache.logging.log4j.Level;
+
+//import com.application.se2.misc.Logger;
 import com.application.se2.misc.IDGenerator;
+import com.application.se2.misc.LoggerImpl;
+//import com.application.se2.misc.LoggerImpl;
 
 
 /**
@@ -37,7 +46,10 @@ public class Customer implements Entity {
 	public enum Status { ACT, SUSP, TERM };
 	//
 	private Status status;
-
+	
+	private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
+	
+	private Logger logger2 = null;
 
 	/**
 	 * Public constructor.
@@ -45,6 +57,8 @@ public class Customer implements Entity {
 	 */
 	public Customer( final String name ) {
 		this( null, name );
+//		logger2.log(Level.INFO, "Customer constructor is called");
+		logger.log(LoggerTopics.Info, "customer created", null);
 	}
 
 	/**
