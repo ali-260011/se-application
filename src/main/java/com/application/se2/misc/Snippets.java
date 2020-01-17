@@ -50,7 +50,7 @@ public class Snippets {
 
 			bwriter.close();
 			fwriter.close();
-			
+
 		} catch( IOException e ) {
 			e.printStackTrace();
 		}
@@ -82,7 +82,7 @@ public class Snippets {
 		Properties configs = new Properties();
 		Set<Entry<Object, Object>> entries = configs.entrySet();
 		for( Entry<Object, Object> entry : entries ) {
-			configs.put( entry.getKey(), entry.getValue() );	    	
+			configs.put( entry.getKey(), entry.getValue() );
 		}
 	}
 

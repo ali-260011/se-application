@@ -13,7 +13,7 @@ import com.application.se2.model.Entity;
 /**
  * Local implementation class that implements the RepositoryIntf<E> interface based
  * on a simple transient (in-memory) List<E> implementation.
- * 
+ *
  * @author sgra64
  *
  * @param <E> gneric entity type defined as sub-type of EntityIntf.
@@ -28,7 +28,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param list list<E> that is associated with the repository.
 	 */
 	public SimpleRepositoryImpl( List<E> list ) {
@@ -38,7 +38,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Returns whether entity with given id is present in the repository.
-	 * 
+	 *
 	 * @param entity id.
 	 * @return true if entity is present in the repository.
 	 */
@@ -51,7 +51,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 	/**
 	 * Find method that returns the repository entity with matching id or null if
 	 * entity is not found.
-	 * 
+	 *
 	 * @param id entity identifier.
 	 * @return Optional of entity matching id.
 	 */
@@ -64,7 +64,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Find method that returns all entities of the repository.
-	 * 
+	 *
 	 * @return all entities of the repository.
 	 */
 	@Override
@@ -76,7 +76,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 	/**
 	 * Find method that returns a set of Entities that have been found based on
 	 * a set of Id's provided as input.
-	 * 
+	 *
 	 * @param ids set of Id's to be looked up in the repository.
 	 * @return set of found Entities.
 	 */
@@ -95,7 +95,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Find method that returns List of entities matching the name-field.
-	 * 
+	 *
 	 * @param regEx regular expression to match getName() property.
 	 * @return Optional of entity matching name.
 	 */
@@ -108,13 +108,13 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Find method that returns List of entities matching the name-field.
-	 * 
+	 *
 	 * @param regEx regular expression to match getName() property
 	 * @param limit max number of matching entities returned
 	 * @return List of matching entites (up to limit)
 	 */
 	@Override
-	public List<E> findByName( String regEx, long limit ) { 
+	public List<E> findByName( String regEx, long limit ) {
 		Pattern p = Pattern.compile( regEx );
 		/*
 		 * Alternative approach to match and collect entities using Java 8's streaming interface.
@@ -132,7 +132,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 	 * Save Entity to repository (update if already present, or add Entity if not yet present).
 	 * Presence in the repository means equality of the Id-property, not equality of object
 	 * references.
-	 * 
+	 *
 	 * @param entity entity to be saved to the repository.
 	 * @return entity that has been saved (which could be the reference to the Entity object
 	 * stored in the repository that is different from the reference to the param-Entity, but
@@ -153,6 +153,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 	 * @param entities
 	 * @return
 	 */
+	@Override
 	public Iterable<E> saveAll( Iterable<E> entities ) {
 		List<E> res = new ArrayList<E>();
 		for( E e : entities ) {
@@ -165,7 +166,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Returns the number of entities present in repository.
-	 * 
+	 *
 	 * @return number of entities present in repository.
 	 */
 	@Override
@@ -176,7 +177,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Delete entity with matching id from the repository.
-	 * 
+	 *
 	 * @id id of entity to be deleted from the repository.
 	 */
 	@Override
@@ -188,7 +189,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Delete entity from repository.
-	 *  
+	 *
 	 * @entity entity to be deleted from repository.
 	 */
 	@Override
@@ -202,7 +203,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Delete all entities passed as argument from repository as one atomic transaction.
-	 * 
+	 *
 	 * @ids list of entities to be deleted from repository.
 	 */
 	@Override
@@ -218,7 +219,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 
 	/**
 	 * Delete all entities from the repository as one atomic transaction.
-	 * 
+	 *
 	 * @entities list of entities to be deleted from repository.
 	 */
 	@Override
@@ -257,7 +258,7 @@ class SimpleRepositoryImpl<E extends Entity> implements RepositoryIntf<E> {
 	 * found in the repository with same id. If no entity with matching id is found,
 	 * the entity passed as argument is inserted into the repository if the insert
 	 * flag is set to true. If set to false, no update is performed.
-	 * 
+	 *
 	 * @entity entity to update values of repository entity with matching id.
 	 * @insert if true, entity is inserted if no entity with matching id exists.
 	 * @return reference to updated entity.

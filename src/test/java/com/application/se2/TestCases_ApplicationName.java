@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * Unit tests concerning the Application's name.
- * 
+ *
  * @author sgra64
  *
  */

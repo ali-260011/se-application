@@ -24,7 +24,7 @@ import static com.application.se2.AppConfigurator.LoggerTopics;
 /**
  * SpringBoot's main Application class containing Java's main() method with invocation
  * and launch of Spring's run time.
- * 
+ *
  * @author sgra64
  *
  */
@@ -32,8 +32,18 @@ import static com.application.se2.AppConfigurator.LoggerTopics;
 public class Application {
 	private static Logger logger = Logger.getInstance( Application.class );
 
+	/*
+	 * Using Spring's auto-wiring to create Singleton RepositoryBuilder instance
+	 * and "wire" its reference to all with @Autowired annotated variables of type
+	 * RepositoryBuilder.
+	 */
+	@Autowired
+	private RepositoryBuilder repositoryBuilder;
+
+
 	@Autowired
 	private ApplicationContext applicationContext;
+
 
 	/**
 	 * Protected constructor for Spring Boot to create an Application instance.
@@ -69,7 +79,7 @@ public class Application {
 
 	/**
 	 * Java's main() method.
-	 * 
+	 *
 	 * @param args arguments passed from invoking command.
 	 */
 	public static void main( final String ... args ) {
@@ -85,7 +95,7 @@ public class Application {
 
 	/**
 	 * Private method to launch Application after Spring's run-time has been initialized.
-	 * 
+	 *
 	 * @param isRunningAsTest indicates whether Applications runs normal from main();
 	 * or as Unit-Test launch.
 	 */
@@ -96,10 +106,19 @@ public class Application {
 		);
 
 		/*
+		 * RepositoryBuilder is a Spring @Component that builds repositories.
+		 *
+		 * Using Spring's auto-wiring to obtain reference to RepositoryBuilder component.
+		 */
+		//final RepositoryBuilder repositoryBuilder = RepositoryBuilder.getInstance();
+
+		/*
 		 * AppBuilder builds applications components and returns a startable Runner instance.
 		 */
-		AppBuilder appBuilder = AppBuilder.getInstance();
-		RunnerIntf appRunner = appBuilder.build();
+		final AppBuilder appBuilder = AppBuilder.getInstance();
+		appBuilder.inject( repositoryBuilder );
+
+		final RunnerIntf appRunner = appBuilder.build();
 
 		/*
 		 * Use (hidden) JavaFX Builder to build the JavaFX GUI also returning a startable FXRunner instance.
@@ -121,7 +140,6 @@ public class Application {
 			onStart -> {
 				logger.log( LoggerTopics.Info, appName + " starting..." );
 
-				final RepositoryBuilder repositoryBuilder = RepositoryBuilder.getInstance();
 				repositoryBuilder.startup();
 
 				/*
@@ -131,7 +149,7 @@ public class Application {
 				 * before leaving the main function terminating the JVM process.
 				 */
 				gui.ifPresent( gui2 -> {
-					
+
 					gui2.start(
 
 						onGUIStart -> {
@@ -201,7 +219,6 @@ public class Application {
 			logger.log( LoggerTopics.Info, appName + " running..." );
 			waitForExit.await();
 
-			final RepositoryBuilder repositoryBuilder = RepositoryBuilder.getInstance();
 			repositoryBuilder.shutdown();
 
 		} catch( InterruptedException e ) {
@@ -216,7 +233,7 @@ public class Application {
 
 	/**
 	 * Return the Application name.
-	 * 
+	 *
 	 * @return Application name.
 	 */
 	public String getName() {

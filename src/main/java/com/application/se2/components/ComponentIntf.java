@@ -10,18 +10,18 @@ import com.application.se2.model.Entity;
 /**
  * Modularizing systems into components and parts requires interfaces to be
  * defined between components and their internal and external parts.
- * 
+ *
  * Public interface ComponentIntf defines a number of interfaces for components:
  *  - LogicIntf, ViewIntf, RepositoryIntf
- * 
+ *
  * All interfaces are top-level interfaces that will be sub-typed by specific
  * component classes (refer to components such as Calculator with specific interfaces:
  * \\
  *  - Calculator.ViewIntf extends ComponentIntf.ViewIntf { ... } and
  *  - Calculator.LogicIntf extends ComponentIntf.LogicIntf { ... }.
- * 
+ *
  * as examples.
- * 
+ *
  * @author sgra64
  *
  */
@@ -76,7 +76,7 @@ public interface ComponentIntf {
 		/**
 		 * Method to return all data items that match a pattern up to a limit
 		 * of items.
-		 * 
+		 *
 		 * @param match pattern to match data items at the source. Only matching
 		 * data items are returned.
 		 * @param limit upper limit of data items to be returned.
@@ -93,7 +93,7 @@ public interface ComponentIntf {
 		/**
 		 * Method that returns a new property as part of an Entity object.
 		 * For example, a new Contact item may be created for a Customer data item.
-		 * 
+		 *
 		 * @param property property for which new item will be created.
 		 * @return object as new instance for property
 		 */

@@ -13,7 +13,7 @@ import com.application.se2.model.Entity;
 /**
  * RepositoryRunner is a singleton class that manages and provides repositories
  * for individual entity classes.
- * 
+ *
  * @author sgra64
  *
  */
@@ -25,7 +25,7 @@ public class RepositoryRunner implements RunnerIntf {
 
 	/**
 	 * Protected constructor only invoked by RepositoryBuilder.
-	 * 
+	 *
 	 * @param repositoryMap
 	 */
 	RepositoryRunner( HashMap<String, RepositoryIntf<?>> repositoryMap ) {
@@ -35,7 +35,7 @@ public class RepositoryRunner implements RunnerIntf {
 
 	/**
 	 * Returns a repository for a given entity class.
-	 * 
+	 *
 	 * @param <T> entity class used as a generic.
 	 * @param clazz specific entity class.
 	 * @return repository of entity class.
@@ -67,7 +67,7 @@ public class RepositoryRunner implements RunnerIntf {
 
 	/**
 	 * Invoked to start a component with three callouts for onStart, onExit and onErorr.
-	 * 
+	 *
 	 * @param onStart callback invoked when component starts
 	 * @param onExit callback invoked when component exits
 	 * @param onError callback invoked when an error is reported for component
@@ -80,7 +80,7 @@ public class RepositoryRunner implements RunnerIntf {
 
 	/**
 	 * Invoked to exit the component, triggers onExit callout to be invoked.
-	 * 
+	 *
 	 * @param msg message passed on exit.
 	 */
 	@Override
@@ -91,7 +91,7 @@ public class RepositoryRunner implements RunnerIntf {
 
 	/**
 	 * Invoked to report an error during component execution, triggers onError callout.
-	 * 
+	 *
 	 * @param msg error message.
 	 */
 	@Override

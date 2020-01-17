@@ -14,14 +14,14 @@ import com.application.se2.model.Note;
  * AppConfigurator is a local singleton class. Its purpose is to set up
  * data for configuring components such as GUI views. It only creates
  * configuration data structures and executes no logic.
- * 
+ *
  * Data structures are stored as arrays of key-value pairs as Object[][][],
  * from which Array/HashMap structures are produced later during build.
- * 
+ *
  * The GUI is assumed as a number of Tabs, each representing a view of an
  * application component (e.g. for Calculator, Customers...).
  * Each view requires configuration data from component key-value pairs.
- * 
+ *
  * @author sgra64
  *
  */
@@ -51,7 +51,7 @@ public class AppConfigurator implements ComponentIntf {
 		//LoggerTopics.RepositoryLoaded,
 		//LoggerTopics.CSSLoaded,
 		LoggerTopics.Always
-	); 
+	);
 
 
 	/*
@@ -135,7 +135,7 @@ public class AppConfigurator implements ComponentIntf {
 	 * Configuration data of a Customer TableView as key-value pairs (kv-pairs)
 	 * for the Table view as whole and for each table column.
 	 * KV-pairs are created using helper methods.
-	 * 
+	 *
 	 * View configurations may contain other view configurations such as here with
 	 * configurations for views for columns Contacts (later rendered as Popup with
 	 * contacts list) and Notes (rendered as Popup with note entries).

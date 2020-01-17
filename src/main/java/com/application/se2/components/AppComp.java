@@ -6,7 +6,7 @@ import com.application.se2.misc.Callback;
 /**
  * App is the minimally required application component featuring
  * a view part (Tab on the GUI) and logic (AppRunner).
- * 
+ *
  * @author sgra64
  *
  */

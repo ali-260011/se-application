@@ -4,11 +4,11 @@ package com.application.se2.misc;
 /**
  * Helper class to trace nodes of an object tree back to its originating
  * root object.
- * 
+ *
  * Use case: if a Customer class a property of class Contacts, then a Contact
  * object can be wrapped as a Traceable to link it back to the root Customer
  * object.
- * 
+ *
  * @author sgra64
  *
  */
@@ -30,7 +30,7 @@ public class Traceable {
 	/**
 	 * Public constructor.
 	 * @param root root of object tree.
-	 * @param parent reference to predecessor in object tree 
+	 * @param parent reference to predecessor in object tree
 	 * @param backLinkProperty Property reference to predecessor in object tree
 	 */
 	public Traceable( final Object root, final Traceable backLink, final EntityProperty backLinkProperty ) {

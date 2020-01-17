@@ -23,7 +23,7 @@ import com.application.se2.model.Note;
  *  with:
  *    - ComponentIntf.LogicIntf and
  *    - ComponentIntf.CRUDLogicIntf
- * 
+ *
  * @author sgra64
  *
  */
@@ -36,7 +36,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param component reference to ArticleCatalogComp component.
 	 * @param app Application logic needed to delegate Exit-button pressed event.
 	 */
@@ -48,7 +48,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 
 	/**
 	 * Method called on startup.
-	 * 
+	 *
 	 */
 	@Override
 	public void startup() {
@@ -58,7 +58,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 
 	/**
 	 * Method called on shutdown.
-	 * 
+	 *
 	 */
 	@Override
 	public void shutdown() {
@@ -69,7 +69,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf to fetch all matching Article objects
 	 * from the repository for display on the GUI.
-	 * 
+	 *
 	 * @param match expression to match Article objects to be returned.
 	 * @param limit maximum number of returned Article objects.
 	 * @return Collection of Article objects.
@@ -86,7 +86,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf to create a new Article instance
 	 * that has an Id, but is not saved to the repository, yet.
-	 * 
+	 *
 	 * @return newly created Article instance (has Id, but is not saved to the repository, yet).
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf to create a new instance of an EntityProperty
 	 * of a Article instance.
-	 * 
+	 *
 	 * @param property EntityProperty for which a new instance will be created.
 	 * @return newly created instance that has not yet been assigned to the Article property.
 	 */
@@ -120,7 +120,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf to process updates of a Article object.
-	 * 
+	 *
 	 * @param updates EntityPropertyUpdateSet data structure to represent updated values.
 	 */
 	@Override
@@ -152,7 +152,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf to delete a selection of Article entities.
-	 * 
+	 *
 	 * @param selection of Article entities to be deleted.
 	 */
 	@Override
@@ -180,7 +180,7 @@ public class ArticleCatalog implements ArticleCatalogComp.LogicIntf {
 	/**
 	 * Invoked on ArticleCatalog CRUDLogicIntf that is delegated to App-instance for
 	 * exiting the application.
-	 * 
+	 *
 	 * @param msg Exit message.
 	 */
 	@Override

@@ -24,7 +24,7 @@ import com.application.se2.model.Note;
  *  with:
  *    - ComponentIntf.LogicIntf and
  *    - ComponentIntf.CRUDLogicIntf
- * 
+ *
  * @author sgra64
  *
  */
@@ -37,7 +37,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param component reference to CustomerManagerComp component.
 	 * @param app Application logic needed to delegate Exit-button pressed event.
 	 */
@@ -46,10 +46,10 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 		this.app = app;
 	}
 
-	
+
 	/**
 	 * Method called on startup.
-	 * 
+	 *
 	 */
 	@Override
 	public void startup() {
@@ -59,7 +59,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 
 	/**
 	 * Method called on shutdown.
-	 * 
+	 *
 	 */
 	@Override
 	public void shutdown() {
@@ -70,7 +70,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf to fetch all matching Customer objects
 	 * from the repository for display on the GUI.
-	 * 
+	 *
 	 * @param match expression to match Customer objects to be returned.
 	 * @param limit maximum number of returned Customer objects.
 	 * @return Collection of Customer objects.
@@ -87,7 +87,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf to create a new Customer instance
 	 * that has an Id, but is not saved to the repository, yet.
-	 * 
+	 *
 	 * @return newly created Customer instance (has Id, but is not saved to the repository, yet).
 	 */
 	@Override
@@ -101,7 +101,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf to create a new instance of an EntityProperty
 	 * of a Customer instance.
-	 * 
+	 *
 	 * @param property EntityProperty for which a new instance will be created.
 	 * @return newly created instance that has not yet been assigned to the Customer property.
 	 */
@@ -124,7 +124,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf to process updates of a Customer object.
-	 * 
+	 *
 	 * @param updates EntityPropertyUpdateSet data structure to represent updated values.
 	 */
 	@Override
@@ -198,7 +198,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf to delete a selection of Customer entities.
-	 * 
+	 *
 	 * @param selection of Customer entities to be deleted.
 	 */
 	@Override
@@ -226,7 +226,7 @@ public class CustomerManager implements CustomerManagerComp.LogicIntf {
 	/**
 	 * Invoked on CustomerManager CRUDLogicIntf that is delegated to App-instance for
 	 * exiting the application.
-	 * 
+	 *
 	 * @param msg Exit message.
 	 */
 	@Override

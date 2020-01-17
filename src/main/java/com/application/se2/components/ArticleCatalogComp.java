@@ -11,7 +11,7 @@ import com.application.se2.repository.RepositoryIntf;
 /**
  * Catalog is a simple application component to manage articles in a repository.
  * It features a view part (TableView on the GUI) and logic (ArticleCatalogManager.java).
- * 
+ *
  * @author sgra64
  *
  */

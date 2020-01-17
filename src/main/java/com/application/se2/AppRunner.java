@@ -13,11 +13,11 @@ import com.application.se2.misc.Logger;
 /**
  * AppRunner is a local singleton class. Its purpose is to control the execution
  * of previously built (created, configured) application components.
- * 
+ *
  * Only one instance of AppRunner is created by the AppBuilder, which makes this
  * class an implicit singleton class (implicit because it does not implement the
  * singleton pattern such as, for example, AppBuilder).
- * 
+ *
  * @author sgra64
  *
  */
@@ -60,7 +60,7 @@ class AppRunner implements RunnerIntf, AppComp.LogicIntf {
 	/**
 	 * RunnerIntf startup method with onStart, onExit, onError hooks called when the AppRunner
 	 * instance is started.
-	 * 
+	 *
 	 * @param onStart callback called at the end of this start method
 	 * @param onExit callback called when exit(msg) method is called on AppRunner instance
 	 * @param onError callback called when error(msg) method is called on AppRunner instance

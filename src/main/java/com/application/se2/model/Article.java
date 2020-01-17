@@ -1,18 +1,13 @@
 package com.application.se2.model;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import com.application.se2.AppConfigurator.LoggerTopics;
 import com.application.se2.misc.IDGenerator;
-import com.application.se2.misc.LoggerImpl;
 
 
 /**
  * Article is an Entity-class that represents an article.
- * 
+ *
  * @author sgra64
- * 
+ *
  */
 public class Article implements Entity {
 	private static final long serialVersionUID = 1L;
@@ -29,8 +24,14 @@ public class Article implements Entity {
 
 	private String price;
 
-	private Logger logger2 = null;
-	private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
+
+	/**
+	 * Private default constructor (required by JSON deserialization).
+	 */
+	@SuppressWarnings("unused")
+	private Article() {
+		this( null, null );
+	}
 
 	/**
 	 * Public constructor.
@@ -39,9 +40,6 @@ public class Article implements Entity {
 	 */
 	public Article( final String name, final String price ) {
 		this( null, name, price );
-//		logger2.log(Level.INFO, "Article constructor is called");
-		logger.log(LoggerTopics.Info, "article created", null);
-
 	}
 
 	/**
@@ -59,7 +57,7 @@ public class Article implements Entity {
 
 	/**
 	 * Return Article id.
-	 * 
+	 *
 	 * @return Article id.
 	 */
 	public String getId() {		// No setId(). Id's cannot be altered.
@@ -69,7 +67,7 @@ public class Article implements Entity {
 
 	/**
 	 * Return Article name.
-	 * 
+	 *
 	 * @return Article name.
 	 */
 	@Override
@@ -79,7 +77,7 @@ public class Article implements Entity {
 
 	/**
 	 * Set Article name.
-	 * 
+	 *
 	 * @param name Article name.
 	 * @return self reference.
 	 */
@@ -91,7 +89,7 @@ public class Article implements Entity {
 
 	/**
 	 * Return Article price.
-	 * 
+	 *
 	 * @return Article price.
 	 */
 	public String getPrice() {
@@ -101,7 +99,7 @@ public class Article implements Entity {
 
 	/**
 	 * Set Article price.
-	 * 
+	 *
 	 * @param name Article price.
 	 * @return self reference.
 	 */

@@ -11,7 +11,7 @@ import java.util.function.BiConsumer;
  * Class to represent a set of EntityProperties that have been updated, e.g. by a GUI.
  * Stored updates can be validated and compared to previous values before being applied
  * to the underlying Entity.
- * 
+ *
  * @author sgra64
  *
  */
@@ -31,7 +31,7 @@ public class EntityPropertyUpdateSet {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param primaryObject underlying Entity to which updates belong.
 	 */
 	public EntityPropertyUpdateSet( final Traceable primaryObject ) {
@@ -41,7 +41,7 @@ public class EntityPropertyUpdateSet {
 
 	/**
 	 * Record original property value.
-	 * 
+	 *
 	 * @param prop reference to EntityProperty.
 	 * @param value original value.
 	 */
@@ -75,7 +75,7 @@ public class EntityPropertyUpdateSet {
 
 	/**
 	 * Returns true is at least one EntityProperty of the set has been altered.
-	 * 
+	 *
 	 * @return true is at least one EntityProperty of the set has been altered.
 	 */
 	public boolean isAltered() {

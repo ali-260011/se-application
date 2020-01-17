@@ -3,7 +3,7 @@ package com.application.se2.misc;
 
 /**
  * Helper class to wrap a String as a StringProperty for TableView cells.
- * 
+ *
  * @author sgra64
  *
  */

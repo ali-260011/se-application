@@ -3,25 +3,27 @@ package com.application.se2.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import com.application.se2.AppConfigurator.LoggerTopics;
-
-//import org.apache.logging.log4j.Level;
-
-//import com.application.se2.misc.Logger;
 import com.application.se2.misc.IDGenerator;
-import com.application.se2.misc.LoggerImpl;
-//import com.application.se2.misc.LoggerImpl;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+//import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+//import com.application.se2.model.customserializer.CustomerJSONSerializer;
+//import com.application.se2.model.customserializer.CustomerJSONDeserializer;
 
 
 /**
  * Customer is an Entity-class that represents a customer.
- * 
+ *
  * @author sgra64
- * 
+ *
  */
+
+//@JsonSerialize(using = CustomerJSONSerializer.class)
+//@JsonDeserialize(using = CustomerJSONDeserializer.class)
+
 public class Customer implements Entity {
 	private static final long serialVersionUID = 1L;
 
@@ -39,17 +41,24 @@ public class Customer implements Entity {
 
 	private final List<String>contacts;
 
+	@JsonIgnore
 	private final List<Note>notes;
 
+	@JsonIgnore
 	private final Date created;
 
 	public enum Status { ACT, SUSP, TERM };
 	//
 	private Status status;
-	
-	private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
-	
-	private Logger logger2 = null;
+
+
+	/**
+	 * Private default constructor (required by JSON deserialization).
+	 */
+	@SuppressWarnings("unused")
+	private Customer() {
+		this( null );
+	}
 
 	/**
 	 * Public constructor.
@@ -57,16 +66,15 @@ public class Customer implements Entity {
 	 */
 	public Customer( final String name ) {
 		this( null, name );
-//		logger2.log(Level.INFO, "Customer constructor is called");
-		logger.log(LoggerTopics.Info, "customer created", null);
 	}
+
 
 	/**
 	 * Private constructor.
 	 * @param id if null is passed as id, an ID will be generated.
 	 * @param name Customer name.
 	 */
-	private Customer( final String id, final String name ) {
+	public Customer( final String id, final String name ) {
 		this.id = id == null? CustomerIdGenerator.nextId() : id;
 		setName( name );
 		this.address = "";
@@ -79,7 +87,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer id.
-	 * 
+	 *
 	 * @return Customer id.
 	 */
 	@Override
@@ -90,7 +98,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer name.
-	 * 
+	 *
 	 * @return Customer name.
 	 */
 	@Override
@@ -100,7 +108,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer name.
-	 * 
+	 *
 	 * @param name new Customer name.
 	 * @return self reference.
 	 */
@@ -113,7 +121,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer address.
-	 * 
+	 *
 	 * @return Customer address.
 	 */
 	public String getAddress() {
@@ -122,7 +130,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer address.
-	 * 
+	 *
 	 * @param new Customer address.
 	 * @return self reference.
 	 */
@@ -134,7 +142,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer contacts.
-	 * 
+	 *
 	 * @return Customer contacts.
 	 */
 	public List<String>getContacts() {
@@ -143,7 +151,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Add Customer contact.
-	 * 
+	 *
 	 * @param contact new Customer contact.
 	 * @return self reference.
 	 */
@@ -157,16 +165,17 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer notes, which are short, time-stamped records.
-	 * 
+	 *
 	 * @return Customer notes.
 	 */
+	@JsonIgnore
 	public List<Note>getNotes() {
 		return notes;
 	}
 
 	/**
 	 * Add Customer note.
-	 * 
+	 *
 	 * @param noteStr short, time-stamped record.
 	 * @return self reference.
 	 */
@@ -181,9 +190,10 @@ public class Customer implements Entity {
 
 	/**
 	 * Get creation date of this Customer instance.
-	 * 
+	 *
 	 * @return creation date of this Customer instance.
 	 */
+	@JsonIgnore
 	public Date getCreationDate() {
 		return created;
 	}
@@ -191,7 +201,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer status.
-	 * 
+	 *
 	 * @return Customer status.
 	 */
 	public Status getStatus() {
@@ -200,7 +210,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer status.
-	 * 
+	 *
 	 * @param status new Customer status.
 	 * @return self reference.
 	 */

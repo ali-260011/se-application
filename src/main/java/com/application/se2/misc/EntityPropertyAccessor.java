@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Helper class to represent the properties of an Entity class wrapped as EntityProperties.
- * 
+ *
  * @author sgra64
  *
  */
@@ -29,7 +29,7 @@ public class EntityPropertyAccessor {
 
 	/**
 	 * Returns list of wrapped as EntityProperties.
-	 * 
+	 *
 	 * @return list list of wrapped as EntityProperties.
 	 */
 	public List<EntityProperty> getList() {
@@ -39,7 +39,7 @@ public class EntityPropertyAccessor {
 
 	/**
 	 * Returns number of wrapped EntityProperties.
-	 * 
+	 *
 	 * @return number of wrapped EntityProperties.
 	 */
 	public int size() {
@@ -50,7 +50,7 @@ public class EntityPropertyAccessor {
 	/**
 	 * Method attempts to locate a Field in an Entity class by name and add to the
 	 * set of wrapped EntityProperties.
-	 * 
+	 *
 	 * @param fieldName name of field.
 	 * @return EntityProperty, if Field with matching name could be found, or null otherwise.
 	 */
@@ -79,7 +79,7 @@ public class EntityPropertyAccessor {
 
 	/**
 	 * Return i-th EntityProperty of list.
-	 * 
+	 *
 	 * @param i index.
 	 * @return i-th EntityProperty of list.
 	 */
@@ -94,7 +94,7 @@ public class EntityPropertyAccessor {
 
 	/**
 	 * Return value of i-th EntityProperty in underlying object.
-	 * 
+	 *
 	 * @param object underlying object.
 	 * @param i index in entityPropertyList.
 	 * @return value of i-th property in underlying object.

@@ -4,6 +4,7 @@ import static com.application.se2.AppConfigurator.LoggerTopics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.application.se2.components.AppComp;
 import com.application.se2.components.ArticleCatalogComp;
@@ -28,10 +29,10 @@ import com.application.se2.repository.RepositoryRunner;
  * application components, but not yet started.
  * The main method is:
  *  - public RunnerIntf build();
- * 
+ *
  * that returns an instance with a RunnerIntf through which application components can be
  * launched.
- * 
+ *
  * @author sgra64
  *
  */
@@ -42,18 +43,21 @@ class AppBuilder implements BuilderIntf {
 
 	private final List<ComponentBase> appComponents;
 
+	private Optional<RepositoryBuilder> repositoryBuilder;
+
 
 	/**
 	 * Private constructor according to the singleton pattern.
 	 */
 	private AppBuilder() {
 		this.appComponents = new ArrayList<ComponentBase>();
+		this.repositoryBuilder = Optional.empty();
 	}
 
 
 	/**
 	 * Access method to singleton instance created when first called.
-	 * 
+	 *
 	 * @return reference to singleton builder instance.
 	 */
 	public static AppBuilder getInstance() {
@@ -65,8 +69,17 @@ class AppBuilder implements BuilderIntf {
 
 
 	/**
+	 * Inject reference to RepositoryBuilder.
+	 * @param repositoryBuilder reference to singleton RepositoryBuilder instance.
+	 */
+	public void inject( RepositoryBuilder repositoryBuilder ) {
+		this.repositoryBuilder = Optional.of( repositoryBuilder );
+	}
+
+
+	/**
 	 * Build code returning a runner instance.
-	 * 
+	 *
 	 * @return runner instance.
 	 */
 	@Override
@@ -96,19 +109,19 @@ class AppBuilder implements BuilderIntf {
 		appComponents.add( customerManager );
 		appComponents.add( articleCatalog );
 
+		repositoryBuilder.ifPresent( repositoryBuilder -> {
 
-		final RepositoryBuilder repositoryBuilder = RepositoryBuilder.getInstance();
-		final RepositoryRunner repositoryRunner = repositoryBuilder.build();
+			final RepositoryRunner repositoryRunner = repositoryBuilder.build();
 
-		// "wire" customer repository into customerManager.
-		repositoryRunner.<Customer>getRepository( Customer.class ).ifPresent( customerRepository -> {
-			customerManager.inject( customerRepository );
+			// "wire" customer repository into customerManager.
+			repositoryRunner.<Customer>getRepository( Customer.class ).ifPresent( customerRepository -> {
+				customerManager.inject( customerRepository );
+			});
+
+			repositoryRunner.<Article>getRepository( Article.class ).ifPresent( articleRepository -> {
+				articleCatalog.inject( articleRepository );
+			});
 		});
-
-		repositoryRunner.<Article>getRepository( Article.class ).ifPresent( articleRepository -> {
-			articleCatalog.inject( articleRepository );
-		});
-
 
 		final AppRunner appRunner = new AppRunner( this, app );
 		app.inject( appRunner );
@@ -144,7 +157,7 @@ class AppBuilder implements BuilderIntf {
 
 	/**
 	 * AppBuilder manages a list of components. Method returns i-th component or null.
-	 * 
+	 *
 	 * @param i index in component list
 	 * @return i-th component of i is in the range of the list or null otherwise
 	 */
@@ -154,7 +167,7 @@ class AppBuilder implements BuilderIntf {
 
 	/**
 	 * Iterates over component list calling the iterator callback for each component.
-	 * 
+	 *
 	 * @param it callback called for each component
 	 */
 	public void iterateComponents( final Callback<ComponentBase> it ) {
@@ -163,7 +176,7 @@ class AppBuilder implements BuilderIntf {
 
 	/**
 	 * Iterates over component list calling the iterator callback in reverse order.
-	 * 
+	 *
 	 * @param it callback called for each component in reverse order.
 	 */
 	public void iterateComponentsReverseOrder( final Callback<ComponentBase> it ) {
