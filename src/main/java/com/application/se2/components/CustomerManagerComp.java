@@ -11,7 +11,7 @@ import com.application.se2.repository.RepositoryIntf;
 /**
  * CustomerManager is a simple application component to manage customers in a repository.
  * It features a view part (TableView on the GUI) and logic (CustomerManager.java).
- * 
+ *
  * @author sgra64
  *
  */

@@ -8,7 +8,7 @@ import com.application.se2.misc.Callback;
 
 /**
  * Public interface of FX/GUI-layer.
- * 
+ *
  * @author sgra64
  *
  */
@@ -16,7 +16,7 @@ public interface FXInterface {
 
 	/**
 	 * Access method to (hidden) FX-builder instance that implements the BuilderIntf.
-	 * 
+	 *
 	 * @return (hidden) FX-builder instance.
 	 */
 	public static BuilderIntf getBuilder() {

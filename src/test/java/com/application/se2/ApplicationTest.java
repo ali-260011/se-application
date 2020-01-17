@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
  * Entry unit testing class defining test suite.
  * See for details:
  * - https://stackoverflow.com/questions/43192046/test-suite-run-spring-boot-once
- * 
+ *
  * @author sgra64
  *
  */

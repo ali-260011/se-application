@@ -4,7 +4,7 @@ package com.application.se2.components;
 /**
  * Calculator is a simple tax calculator application component featuring
  * a view part (Tab on the GUI) and logic (CalculatorLogic).
- * 
+ *
  * @author sgra64
  *
  */

@@ -30,7 +30,7 @@ class TableItem {
 	}
 
 	Property<?> getProperty( final int i ) {
-		return indexInRange( propertyValues, i )? propertyValues.get( i ) : defaultProperty; 
+		return indexInRange( propertyValues, i )? propertyValues.get( i ) : defaultProperty;
 	}
 
 	public TableViewImpl getFXTableView() {

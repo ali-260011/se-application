@@ -9,7 +9,7 @@ import com.application.se2.misc.Callback;
 /**
  * Base class of all component classes providing component configuration
  * information stored as key-value tuples in the configs Properties map.
- * 
+ *
  * @author sgra64
  *
  */
@@ -19,7 +19,7 @@ public class ComponentBase {
 
 	/*
 	 * Class to define top-level key name space used to store config properties.
-	 * 
+	 *
 	 * Keys Logic and View are used to inject references to instances that implement
 	 * respective component Logic- and View-interfaces as they become available during
 	 * the build process.
@@ -63,11 +63,11 @@ public class ComponentBase {
 	/**
 	 * Generic method to access view-part of a component, if present in configuration.
 	 * The nature of generic methods requires the method to be static.
-	 * 
+	 *
 	 * Rather than returning a ViewIntf instance stored under the Key.View and potentially
 	 * returning null or an empty Optional if none is present, the approach here is to
 	 * invoke a Callback on the interface if it is present.
-	 *  
+	 *
 	 * @param <T> concrete ViewIntf of the interface to be invoked.
 	 * @param component component on which the concrete ViewIntf is invoked.
 	 * @param callOut called on ViewIntf.
@@ -79,7 +79,7 @@ public class ComponentBase {
 	/**
 	 * Generic method to access logic-part of a component, if present in configuration.
 	 * The nature of generic methods requires the method to be static.
-	 * 
+	 *
 	 * @param <T> concrete LogicIntf of the interface to be invoked.
 	 * @param component component on which the concrete LogicIntf is invoked.
 	 * @param callOut called onLogicIntf.
@@ -102,7 +102,7 @@ public class ComponentBase {
 	/**
 	 * Configurations are stored as key-value pairs by all components.
 	 * This method stores a configuration tuple as key-value pair.
-	 * 
+	 *
 	 * @param key key under which value is stored.
 	 * @param value value stored under a key.
 	 * @return this to dot-chain invocations.
@@ -124,7 +124,7 @@ public class ComponentBase {
 	/**
 	 * Configurations are stored as key-value pairs by all components.
 	 * This method returns a stored a configuration value from a key.
-	 * 
+	 *
 	 * @param key key for which a value is returned
 	 * @return value value, if found or null otherwise.
 	 */
@@ -135,7 +135,7 @@ public class ComponentBase {
 	/**
 	 * Components should have names stored as Strings under keys Key.Name or Key.Label.
 	 * This method returns a value (name) found under those keys or null if none is present.
-	 * 
+	 *
 	 * @return component name stored under Key.Name or null if not present.
 	 */
 	public String getName() {

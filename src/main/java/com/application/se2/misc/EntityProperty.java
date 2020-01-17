@@ -19,7 +19,7 @@ import com.application.se2.AppConfigurator.Table;
  * Entity properties and setting them using Reflection and taking care of basic
  * type conversion. It furthermore wraps configuration K/V-pairs that are applicable
  * to the EntityProperty.
- * 
+ *
  * @author sgra64
  *
  */
@@ -45,7 +45,7 @@ public class EntityProperty {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param field field to be wrapped by EntityProperty.
 	 */
 	public EntityProperty( final Field field ) {
@@ -56,7 +56,7 @@ public class EntityProperty {
 
 	/**
 	 * Public copy constructor.
-	 * 
+	 *
 	 * @param copy original EntityProperty of which a copy is made.
 	 */
 	public EntityProperty( final EntityProperty copy ) {
@@ -67,7 +67,7 @@ public class EntityProperty {
 
 	/**
 	 * Only a set of Field base types can be altered (set) by EntityProperty.
-	 * 
+	 *
 	 * @return true, if type of underlying Field is an alterable base type.
 	 */
 	public boolean isAlterableBaseType() {
@@ -85,7 +85,7 @@ public class EntityProperty {
 
 	/**
 	 * Returns true if underlying Field is of a Collection type.
-	 * 
+	 *
 	 * @return true, if underlying Field is of a Collection type.
 	 */
 	public boolean isCollectionType() {
@@ -97,7 +97,7 @@ public class EntityProperty {
 
 	/**
 	 * Returns name of underlying Field.
-	 * 
+	 *
 	 * @return name of underlying Field.
 	 */
 	public String getName() {
@@ -107,7 +107,7 @@ public class EntityProperty {
 
 	/**
 	 * Returns value of the underlying Field in the object passed as argument.
-	 * 
+	 *
 	 * @param obj of which the value of the underlying Field will be returned.
 	 * @return value of the underlying object Field.
 	 */
@@ -147,7 +147,7 @@ public class EntityProperty {
 
 	/**
 	 * Sets the value of the underlying Field in the object passed as argument.
-	 * 
+	 *
 	 * @param obj of which the value of the underlying Field will be set.
 	 * @return value set to the underlying object Field.
 	 */
@@ -176,7 +176,7 @@ public class EntityProperty {
 						if( ft.equals( Long.class ) ) { value = Long.parseLong( strVal ); } else {
 						if( ft.equals( Double.class ) ) { value = Double.parseDouble( strVal ); } else {
 						if( ft.equals( Float.class ) ) { value = Float.parseFloat( strVal ); } else {
-						if( ft.equals( Short.class ) ) { value = Short.parseShort( strVal ); } else {	
+						if( ft.equals( Short.class ) ) { value = Short.parseShort( strVal ); } else {
 						if( ft.equals( Byte.class ) ) { value = Byte.parseByte( strVal ); } else {
 						}}}}}}
 

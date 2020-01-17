@@ -7,7 +7,7 @@ import com.application.se2.misc.Logger;
 
 /**
  * JavaFX-GUI Builder as local singleton component class.
- * 
+ *
  * @author sgra64
  *
  */

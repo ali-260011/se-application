@@ -29,7 +29,7 @@ import com.application.se2.misc.Traceable;
  * Local helper class for a Popup that allows editing generic String property sets.
  * It is used when logic data, e.g. Customer data is updated or new objects are
  * created and property values need to be entered.
- * 
+ *
  * @author sgra64
  *
  */

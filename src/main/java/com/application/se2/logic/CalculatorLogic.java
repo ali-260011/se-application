@@ -11,7 +11,7 @@ import com.application.se2.misc.Logger;
 /**
  * Class that implements the Calculator logic as defined in the:
  *  - CalculatorComp.LogicIntf
- * 
+ *
  * @author sgra64
  *
  */
@@ -25,7 +25,7 @@ public class CalculatorLogic implements CalculatorComp.LogicIntf {
 
 	/**
 	 * Public constructor.
-	 * 
+	 *
 	 * @param component reference to Calculator component.
 	 */
 	public CalculatorLogic( final CalculatorComp component ) {
@@ -35,7 +35,7 @@ public class CalculatorLogic implements CalculatorComp.LogicIntf {
 
 	/**
 	 * Method called at startup.
-	 * 
+	 *
 	 */
 	@Override
 	public void startup() {
@@ -45,7 +45,7 @@ public class CalculatorLogic implements CalculatorComp.LogicIntf {
 
 	/**
 	 * Method called at shutdown.
-	 * 
+	 *
 	 */
 	@Override
 	public void shutdown() {
@@ -56,7 +56,7 @@ public class CalculatorLogic implements CalculatorComp.LogicIntf {
 	/**
 	 * Method called each time a user types a key (press key or mouse-click on keypad)
 	 * with the token indicating the key.
-	 * 
+	 *
 	 * @param token Token representing a key or keypad event received from the Calculator GUI.
 	 */
 	@Override

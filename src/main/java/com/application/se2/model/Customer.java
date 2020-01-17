@@ -12,15 +12,15 @@ import com.application.se2.AppConfigurator.LoggerTopics;
 
 //import com.application.se2.misc.Logger;
 import com.application.se2.misc.IDGenerator;
-import com.application.se2.misc.LoggerImpl;
+//import com.application.se2.misc.LoggerImpl;
 //import com.application.se2.misc.LoggerImpl;
 
 
 /**
  * Customer is an Entity-class that represents a customer.
- * 
+ *
  * @author sgra64
- * 
+ *
  */
 public class Customer implements Entity {
 	private static final long serialVersionUID = 1L;
@@ -46,9 +46,9 @@ public class Customer implements Entity {
 	public enum Status { ACT, SUSP, TERM };
 	//
 	private Status status;
-	
-	private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
-	
+
+	//private com.application.se2.misc.Logger logger = LoggerImpl.getInstance(Customer.class);
+
 	private Logger logger2 = null;
 
 	/**
@@ -58,7 +58,7 @@ public class Customer implements Entity {
 	public Customer( final String name ) {
 		this( null, name );
 //		logger2.log(Level.INFO, "Customer constructor is called");
-		logger.log(LoggerTopics.Info, "customer created", null);
+	//	logger.log(LoggerTopics.Info, "customer created", null);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer id.
-	 * 
+	 *
 	 * @return Customer id.
 	 */
 	@Override
@@ -90,7 +90,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer name.
-	 * 
+	 *
 	 * @return Customer name.
 	 */
 	@Override
@@ -100,7 +100,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer name.
-	 * 
+	 *
 	 * @param name new Customer name.
 	 * @return self reference.
 	 */
@@ -113,7 +113,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Return Customer address.
-	 * 
+	 *
 	 * @return Customer address.
 	 */
 	public String getAddress() {
@@ -122,7 +122,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer address.
-	 * 
+	 *
 	 * @param new Customer address.
 	 * @return self reference.
 	 */
@@ -134,7 +134,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer contacts.
-	 * 
+	 *
 	 * @return Customer contacts.
 	 */
 	public List<String>getContacts() {
@@ -143,7 +143,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Add Customer contact.
-	 * 
+	 *
 	 * @param contact new Customer contact.
 	 * @return self reference.
 	 */
@@ -157,7 +157,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer notes, which are short, time-stamped records.
-	 * 
+	 *
 	 * @return Customer notes.
 	 */
 	public List<Note>getNotes() {
@@ -166,7 +166,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Add Customer note.
-	 * 
+	 *
 	 * @param noteStr short, time-stamped record.
 	 * @return self reference.
 	 */
@@ -181,7 +181,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get creation date of this Customer instance.
-	 * 
+	 *
 	 * @return creation date of this Customer instance.
 	 */
 	public Date getCreationDate() {
@@ -191,7 +191,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Get Customer status.
-	 * 
+	 *
 	 * @return Customer status.
 	 */
 	public Status getStatus() {
@@ -200,7 +200,7 @@ public class Customer implements Entity {
 
 	/**
 	 * Set Customer status.
-	 * 
+	 *
 	 * @param status new Customer status.
 	 * @return self reference.
 	 */

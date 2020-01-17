@@ -29,7 +29,7 @@ import javafx.stage.WindowEvent;
 
 /**
  * JavaFX/GUI Runner component as local component singleton class.
- * 
+ *
  * @author sgra64
  *
  */
@@ -215,7 +215,7 @@ class FXRunner extends javafx.application.Application implements FXInterface.FXR
 
 	/**
 	 * FXRunnerIntf method called on FXRunner instance.
-	 * @param selectTab index of Tab to be shown after startup 
+	 * @param selectTab index of Tab to be shown after startup
 	 */
 	@Override
 	public void show( int selectTab ) {

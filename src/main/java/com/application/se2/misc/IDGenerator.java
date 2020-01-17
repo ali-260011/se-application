@@ -4,12 +4,12 @@ package com.application.se2.misc;
 /**
  * Simple ID-Generator using random numbers and supporting a variety of formats
  * such as ALPHANUM, AIRLINE, NUM, HEX, BIN.
- * 
+ *
  * Examples are:
  *  - "C.ED84DX" using prefix "C." followed by a random number of type AIRLINE-code
  *  - "3450629369" as simple 10-digit decimal number
  *  - "A8C86ED4D8" as 10-digit hex number.
- * 
+ *
  * @author sgra64
  *
  */
