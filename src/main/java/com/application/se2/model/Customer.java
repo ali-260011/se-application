@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import com.application.se2.misc.IDGenerator;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-//import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-//import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-import com.application.se2.model.customserializer.CustomerJSONSerializer;
-import com.application.se2.model.customserializer.CustomerJSONDeserializer;
 
 
 /**
@@ -22,10 +24,9 @@ import com.application.se2.model.customserializer.CustomerJSONDeserializer;
  *
  */
 
-@JsonSerialize(using = CustomerJSONSerializer.class)
-@JsonDeserialize(using = CustomerJSONDeserializer.class)
-
-public class Customer implements Entity {
+@Entity
+@Table(name = "Customer")
+public class Customer implements com.application.se2.model.Entity {
 	private static final long serialVersionUID = 1L;
 
 	private static final IDGenerator CustomerIdGenerator
@@ -34,20 +35,34 @@ public class Customer implements Entity {
 	/*
 	 * Entity Properties.
 	 */
+	@Id
+	@Column(name ="id")
 	private final String id;
 
+	@Column(name ="name")
 	private String name;
 
+	@Column(name ="address")
 	private String address;
 
+	@Column(name="contacts")
+	@Convert(converter = com.application.se2.model.customserializer.StringListConverter.class)		// map List<String> to single, ';'-separated String
 	private final List<String>contacts;
 
+//	@Transient
+	@OneToMany(
+		fetch = FetchType.EAGER,
+		cascade = CascadeType.ALL,
+		mappedBy = "customer"
+	)
 	private final List<Note>notes;
 
+	//@Transient
 	private final Date created;
 
 	public enum Status { ACT, SUSP, TERM };
 	//
+	@Column(name="status")
 	private Status status;
 
 
@@ -79,7 +94,8 @@ public class Customer implements Entity {
 		this.address = "";
 		this.contacts = new ArrayList<String>();
 		this.notes = new ArrayList<Note>();
-		this.created = new Date();
+		//this.created = new Date();
+		this.created = created==null? new Date() : created;
 		this.status = Status.ACT;
 	}
 
@@ -180,6 +196,7 @@ public class Customer implements Entity {
 	public Customer addNote( final String noteStr ) {
 		if( noteStr != null && noteStr.length() > 0 ) {
 			Note note = new Note( noteStr.trim() );
+			note.setCustomer(this);
 			notes.add( note );
 		}
 		return this;

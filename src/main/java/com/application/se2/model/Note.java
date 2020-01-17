@@ -4,6 +4,15 @@ import java.io.Serializable;
 import java.text.ParseException;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import com.application.se2.misc.EntityProperty;
 
 
@@ -16,16 +25,37 @@ import com.application.se2.misc.EntityProperty;
  *
  * @author sgra64
  */
+@Entity
+@Table(name = "NOTES")
 public class Note implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private static final String FieldSeparator = ";; ";
 	private static long lastTimeStamp = 0L;
-
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name ="id")
+	private long id; // unique, non‐null long.
+	
+	@Column(name="TIME")
 	private Date timeStamp = null;		// TimeStamp part of Note.
-
+	
+	@Column(name="TEXT")
 	private String noteText = null;		// Text part of Note.
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Customer customer;
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	private Note() { }
 
 	/**
 	 * Public constructor.
